@@ -8,7 +8,10 @@ int main(){
   cout << setprecision(2);
   cout << fixed << showpoint;
 
-  // Declaración de variables
+  /*
+   * Declaración de variables
+  */
+  
   int numeroCliente;
   short cantidadCanalesHD;
   short cantidadConexiones;
@@ -23,7 +26,9 @@ int main(){
   float importePorCadaCanalHD;
   float importeCanalesHD;
 
-  // Ingreso de información
+  /*
+   * Ingreso de información
+   */
   cout << "Numero de cliente: ";
   cin >> numeroCliente;
 
@@ -33,21 +38,24 @@ int main(){
   cout << "Tipo de cliente: ";
   cin >> tipoCliente;
 
-
   cout << "Cantidad de canales: ";
   cin >> cantidadCanalesHD;
 
   switch(tipoCliente){
   case 'r': case 'R':
+    // valores predefinidos para Cliente Residencial
     importeEnvioFactura = 4.50;
     importeServicioBasico = 20.5;
     importePorCadaCanalHD = 5;
     break;
   case 'c': case 'C':
+    // valores predefinidos para Cliente Comercial
     importeEnvioFactura = 15;
     importeServicioBasico = 75;
     importePorCadaCanalHD = 5;
-    cantidadConexionesAdicionalesMinimo = 10; // Si supera esta cantidad, se cobra un adicional por c/conexion
+    
+    // Si supera esta cantidad, se cobra un adicional por c/conexion
+    cantidadConexionesAdicionalesMinimo = 10; 
 
     cout << "Cantidad de conexiones: ";
     cin >> cantidadConexiones;
@@ -71,9 +79,13 @@ int main(){
     
   }
 
-  // Desplegar información
-
+  /*
+   * Mostrar información generada
+   */
+  
+  // Se multiplica la cantidad de canales contratados por el importe predefinidos de por cada canal
   importeCanalesHD = (importePorCadaCanalHD * cantidadCanalesHD);
+  // Sumatoria total de todos los importes
   importeTotal = (importeEnvioFactura + importeServicioBasico + importeCanalesHD);
 
   cout << '\n'; // salto de linea
