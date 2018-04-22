@@ -13,6 +13,8 @@ int main(){
   short cantidadCanalesHD;
   short cantidadConexiones;
   short cantidadConexionesAdicionales;
+  short cantidadConexionesAdicionalesMinimo;
+ 
   char tipoCliente;
 
   float importeTotal;
@@ -45,17 +47,23 @@ int main(){
     importeEnvioFactura = 15;
     importeServicioBasico = 75;
     importePorCadaCanalHD = 5;
+    cantidadConexionesAdicionalesMinimo = 10; // Si supera esta cantidad, se cobra un adicional por c/conexion
 
     cout << "Cantidad de conexiones: ";
     cin >> cantidadConexiones;
 
-    if(cantidadConexiones > 10){
-      // Operación conexiones totales y restantes
-      cantidadConexionesAdicionales = (cantidadConexiones - 10);
+    // Si la cantidad de conexiones supera la cantidadConexionesAdicionalesMinimo
+    if(cantidadConexiones > cantidadConexionesAdicionalesMinimo){
+      // Se resta la cantidad conexiones totales
+      // para establecer la cantidad cuantas conexiones se adicionan
+      // si se supera la cantidad de conexiones adicionales
+      cantidadConexionesAdicionales = (cantidadConexiones - cantidadConexionesAdicionalesMinimo);
 
-      // Mostrar cantidad conexiones adicionales
+      // Mostrar la cantidad conexiones adicionales
       cout << "Cantidad de Conexiones adicionales " << cantidadConexionesAdicionales << endl;
       
+      // Se cobra un adicional por cada canal
+      // si supera la cantidad de conexiones adicionales
       importeServicioBasico += (cantidadConexionesAdicionales * importePorCadaCanalHD);
     }
     
