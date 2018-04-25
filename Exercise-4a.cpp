@@ -3,7 +3,7 @@
  * Se desea contar con un sistema que evalue el estado de cuenta
  * mensual de un cliente de banco durante el ultimo año y determine
  * su nivel de confianza. Al cierre de cada mes (dia 30), se evalua
- * si el saldo fue psoitivo o negativo en funcion de ese resultado,
+ * si el saldo fue positivo o negativo en funcion de ese resultado,
  * se determina la situacion de cada cliente de acuerdo al siguiente
  * criterio:
  * -Sin saldos negativos, se lo considera de ALTA confianza.
