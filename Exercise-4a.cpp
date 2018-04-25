@@ -6,6 +6,7 @@
  * si el saldo fue positivo o negativo en funcion de ese resultado,
  * se determina la situacion de cada cliente de acuerdo al siguiente
  * criterio:
+ *
  * -Sin saldos negativos, se lo considera de ALTA confianza.
  * -Hasta 2 saldos negativos, se lo considera confianza MEDIA.
  * -Si supera los 2 saldos negativos, es BAJA confianza.
