@@ -1,54 +1,43 @@
 /*
  * Exercise 12a:
  *
- * Dada una terna de numeros naturales que representan
- * el dia, el mes y el año de una determinada fecha
- * informarla como un solo número natural de 8 digitos (aaaammdd)
+ * Dada una terna de números naturales que representan
+ * el día, el mes y el año de una determinada fecha
+ * informarla como un solo número natural de 8 digitos
+ * con formato (aaaammdd)
  *
- * Solucion 1 (pseudo codigo)
- * 
+ * Solucion 1: (En pseudo codigo)
+ * 1. Entrada de datos > dia=13, mes=12, anio=2018
+ * 2. Agregarle al 'anio' cuatro digitos a la derecha,
+ * para poner colocar el dia y mes en formato (aaaammdd)
+ * 2.1 Multiplicar el anio*10000, quedando 20180000
+ * 2.2 Mutiplicar mes*100, quedando 1200
+ * 3. Sumar el anio, mes, dia
+ *
 */
-
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main(){
-  int dia1, mes1, anio1, primer_fecha_formato;
-  int dia2, mes2, anio2, segunda_fecha_formato;
-  string primer_fecha, segunda_fecha, fecha_actual;
-  //char dia2[5], mes2[5];
+  // Declaro las variables
+  int dia, mes, anio, fecha;
 
   // Texto informativo
-  cout << "El formato de la fecha debe estar separado por espacios" << endl;
-  cout << "(Ej.: 04 12 2016)" << endl;
-  cout << '\n';
+  cout << "Ingresar la fecha en formato dd/mm/aaaa" << endl;
+  cout << "separada por espacios" << endl;
+  cout << "Ej.: 22 12 2018" << endl;
 
-  // Entrada de datos
-  cout << "Ingrese la primera fecha: ";
-  cin >> dia1 >> mes1 >> anio1;
+  cout << '\n'; // new line
 
-  cout << "Ingrese la segunda fecha: ";
-  cin >> dia2 >> mes2 >> anio2;
+  // 1. Entrada de datos (cin)
+  cout << "Fecha: ";
+  cin >> dia >> mes >> anio;
+
+  // 2. Proceso la informacion
+  fecha = (anio * 10000) + (mes * 100) + dia;
   
-  cout << '\n';
-  
-  // El formato quedará: 31/12/2016 (sin los espacios)
-  primer_fecha = dia1 + " " + mes1 + " " + anio1;
-  segunda_fecha = dia2 + " " + mes2 + " " + anio2;
- 
-  // El formato quedará: 2016 12 31 (sin los espacios)
-  primer_fecha_formato = (anio1 * 10000) + (mes1 * 100) + dia1;
-  segunda_fecha_formato = (anio2 * 10000) + (mes2 * 100) + dia2;
-
-  if(primer_fecha_formato > segunda_fecha_formato){
-    fecha_actual = primer_fecha;
-  }else{
-    fecha_actual = segunda_fecha;
-  }
-
-  cout << "La fecha mas actual es " << fecha_actual << endl;
-	 
-  return 0;
+  // 3. Salida de datos (cout)
+  cout << "Fecha en formato (aaaammdd): " << fecha << endl;
+    
 }
